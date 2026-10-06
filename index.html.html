@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Diana Guiab — aspiring programmer and web developer." />
+  <title>Diana Guiab | Programmer Portfolio</title>
+  <style>
+    :root{--bg:#f7f7f4;--ink:#171717;--muted:#77776f;--line:#deded7;--accent:#b8f36b;--card:#fff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
+    header{display:flex;justify-content:space-between;align-items:center;padding:27px 0;border-bottom:1px solid var(--line)}
+    .brand{font-size:14px;font-weight:800;letter-spacing:.06em}.brand span{color:var(--muted);font-weight:400}
+    nav{display:flex;gap:25px;font-size:13px;color:#555}.nav-toggle{display:none;background:none;border:0;font-size:24px}
+    .hero{min-height:570px;display:flex;flex-direction:column;justify-content:center;padding:80px 0 90px;position:relative}
+    .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 25px}
+    h1{font-size:clamp(58px,10vw,120px);letter-spacing:-.085em;line-height:.86;margin:0;max-width:850px;font-weight:750}
+    h1 .outline{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+    .hero-bottom{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-top:45px}.intro{font-size:clamp(17px,2vw,22px);line-height:1.5;max-width:440px;margin:0}.hero-links{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border:1px solid var(--ink);border-radius:100px;font-size:13px;font-weight:700;transition:.2s}.btn.primary{background:var(--accent)}.btn:hover{transform:translateY(-2px)}
+    section{padding:75px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-bottom:36px}.section-head h2{font-size:clamp(35px,5vw,58px);letter-spacing:-.06em;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:55px}.about-kicker{font-size:14px;color:var(--muted)}.about-copy{font-size:clamp(19px,2.5vw,28px);line-height:1.55;letter-spacing:-.025em;margin:0}.about-copy strong{font-weight:700}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.skill{padding:25px;background:var(--card);border:1px solid var(--line);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}.skill-num{font-size:12px;color:var(--muted)}.skill h3{font-size:25px;letter-spacing:-.04em;margin:24px 0 8px}.skill p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .resume-panel{background:var(--ink);color:#fff;padding:clamp(28px,5vw,55px);display:flex;justify-content:space-between;align-items:center;gap:25px}.resume-panel h3{font-size:clamp(30px,4vw,48px);letter-spacing:-.06em;margin:0 0 12px}.resume-panel p{color:#c6c6c0;line-height:1.6;max-width:520px;margin:0}.resume-panel .btn{background:var(--accent);color:var(--ink);border-color:var(--accent);white-space:nowrap}
+    .contact-row{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}.contact-row h2{font-size:clamp(40px,7vw,78px);letter-spacing:-.07em;line-height:.95;margin:0;max-width:650px}.contact-row h2 span{color:var(--muted)}
+    footer{padding:25px 0 35px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:12px}
+    @media(max-width:650px){.wrap{width:calc(100% - 32px)}header{padding:20px 0}.nav-toggle{display:block}nav{display:none;position:absolute;z-index:5;top:65px;left:16px;right:16px;padding:20px;background:var(--card);border:1px solid var(--line);flex-direction:column;gap:18px}nav.open{display:flex}.hero{min-height:570px;padding:65px 0}.hero-bottom{align-items:flex-start;flex-direction:column}.section-head{align-items:flex-start;flex-direction:column}.about-grid{grid-template-columns:1fr;gap:20px}.skills-grid{grid-template-columns:1fr}.skill{min-height:125px}.resume-panel{align-items:flex-start;flex-direction:column}.contact-row{align-items:flex-start;flex-direction:column}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#home">DIANA GUIAB <span>/ PORTFOLIO</span></a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" onclick="toggleNav()">☰</button>
+      <nav id="nav"><a href="#home" onclick="closeNav()">Home</a><a href="#skills" onclick="closeNav()">Skills</a><a href="#about" onclick="closeNav()">About Me</a><a href="#resume" onclick="closeNav()">Resume ↗</a><a href="#contact" onclick="closeNav()">Contact</a></nav>
+    </header>
+    <main>
+      <section class="hero" id="home" style="border-top:0">
+        <p class="eyebrow">Aspiring Programmer · Portfolio 2026</p>
+        <h1>Hi, I'm<br><span class="outline">Diana</span><br>Guiab.</h1>
+        <div class="hero-bottom"><p class="intro">I’m a 3rd-year college student and beginner programmer learning web development one step at a time.</p><div class="hero-links"><a class="btn primary" href="#skills">Explore my skills ↓</a><a class="btn" href="#contact">Get in touch ↗</a></div></div>
+      </section>
+      <section id="about">
+        <div class="section-head"><h2>More about me</h2><p>(01 — A little introduction)</p></div>
+        <div class="about-grid"><p class="about-kicker">Hi there! Nice to meet you.</p><p class="about-copy"><strong>Hi, my name is Diana Guiab.</strong> I am a 3rd-year college student beginning my journey in programming. I enjoy learning about technology, exploring how websites work, and practicing new coding skills. As a beginner, I know there is still a lot to learn, and I am ready to improve step by step. My goal is to become a skilled programmer and create useful, user-friendly websites.</p></div>
+      </section>
+      <section id="skills">
+        <div class="section-head"><h2>Skills</h2><p>(02 — What I'm learning)</p></div>
+        <div class="skills-grid">
+          <article class="skill"><span class="skill-num">01 / WEB</span><div><h3>HTML</h3><p>Building the structure and content of web pages.</p></div></article>
+          <article class="skill"><span class="skill-num">02 / DESIGN</span><div><h3>CSS</h3><p>Styling layouts, colors, typography, and responsive pages.</p></div></article>
+          <article class="skill"><span class="skill-num">03 / INTERACTION</span><div><h3>JavaScript</h3><p>Learning to add interactivity and useful features to websites.</p></div></article>
+          <article class="skill"><span class="skill-num">04 / PERSONAL</span><div><h3>Problem-solving</h3><p>Curiosity, patience, teamwork, and a willingness to learn.</p></div></article>
+        </div>
+        <p style="color:var(--muted);font-size:12px;line-height:1.6;margin-top:18px">Tip: Keep only the skills you have actually tried, and update this section as you learn more.</p>
+      </section>
+      <section id="resume">
+        <div class="section-head"><h2>Resume</h2><p>(03 — A quick overview)</p></div>
+        <div class="resume-panel"><div><h3>Want to know more?</h3><p>As a 3rd-year college student, my resume can include my education, programming skills, relevant school activities, certificates, and class projects. When ready, place your PDF in the same folder as this website and name it <strong>resume.pdf</strong> to make the button open it.</p></div><a class="btn" href="resume.pdf" target="_blank" rel="noopener">View my resume ↗</a></div>
+      </section>
+      <section id="contact">
+        <div class="section-head"><h2>Contact</h2><p>(04 — Let's connect)</p></div>
+        <div class="contact-row"><h2>Have an idea?<br><span>Let's talk.</span></h2><a class="btn primary" href="mailto:your.email@example.com">your.email@example.com ↗</a></div>
+        <p style="color:var(--muted);font-size:12px;margin-top:20px">Replace the sample email with your own email address before publishing.</p>
+      </section>
+    </main>
+    <footer><span>© 2026 Diana Guiab</span><span>Designed with curiosity and code.</span></footer>
+  </div>
+  <script>
+    function toggleNav(){const nav=document.getElementById('nav');const btn=document.querySelector('.nav-toggle');nav.classList.toggle('open');btn.setAttribute('aria-expanded',nav.classList.contains('open'));}
+    function closeNav(){const nav=document.getElementById('nav');const btn=document.querySelector('.nav-toggle');nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  </script>
+</body>
+</html>
