@@ -1,4 +1,4 @@
-# Diana Guiab — Portfolio Website
+# Diana Guiab
 
 Welcome to my personal portfolio website!
 
