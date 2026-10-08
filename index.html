@@ -1,513 +1,137 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Diana Guiab — aspiring programmer and BS Information Technology student.">
-  <title>Diana Guiab | Programmer Portfolio</title>
-
-  <style>
-    :root {
-      --bg: #f7f7f4;
-      --ink: #171717;
-      --muted: #77776f;
-      --line: #deded7;
-      --accent: #b8f36b;
-      --card: #ffffff;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(1120px, calc(100% - 44px));
-      margin: auto;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .06em;
-    }
-
-    .brand span {
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-      font-size: 13px;
-      color: #555;
-    }
-
-    nav a:hover { color: #648c2b; }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .hero {
-      min-height: 570px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 0 90px;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 25px;
-    }
-
-    h1 {
-      font-size: clamp(58px, 10vw, 120px);
-      letter-spacing: -.085em;
-      line-height: .9;
-      margin: 0;
-      max-width: 850px;
-      font-weight: 750;
-    }
-
-    h1 .outline {
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--ink);
-    }
-
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 25px;
-      margin-top: 45px;
-    }
-
-    .intro {
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.5;
-      max-width: 440px;
-      margin: 0;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border: 1px solid var(--ink);
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    section {
-      padding: 75px 0;
-      border-top: 1px solid var(--line);
-      scroll-margin-top: 20px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: baseline;
-      margin-bottom: 36px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(35px, 5vw, 58px);
-      letter-spacing: -.06em;
-      margin: 0;
-    }
-
-    .section-head p {
-      font-size: 12px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 55px;
-    }
-
-    .about-kicker {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .about-copy {
-      font-size: clamp(19px, 2.5vw, 28px);
-      line-height: 1.55;
-      letter-spacing: -.025em;
-      margin: 0;
-    }
-
-    .about-copy strong { font-weight: 700; }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .skill {
-      padding: 25px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .skill-num {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .skill h3 {
-      font-size: 25px;
-      letter-spacing: -.04em;
-      margin: 24px 0 8px;
-    }
-
-    .skill p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .resume-panel {
-      background: var(--ink);
-      color: #fff;
-      padding: clamp(28px, 5vw, 55px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .resume-panel h3 {
-      font-size: clamp(30px, 4vw, 48px);
-      letter-spacing: -.06em;
-      margin: 0 0 12px;
-    }
-
-    .resume-panel p {
-      color: #c6c6c0;
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0;
-    }
-
-    .resume-panel .btn {
-      background: var(--accent);
-      color: var(--ink);
-      border-color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .contact-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    .contact-row h2 {
-      font-size: clamp(40px, 7vw, 78px);
-      letter-spacing: -.07em;
-      line-height: .95;
-      margin: 0;
-      max-width: 650px;
-    }
-
-    .contact-row h2 span { color: var(--muted); }
-
-    footer {
-      padding: 25px 0 35px;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    @media (max-width: 650px) {
-      .wrap { width: calc(100% - 32px); }
-
-      header { padding: 20px 0; }
-
-      .nav-toggle { display: block; }
-
-      nav {
-        display: none;
-        position: absolute;
-        z-index: 5;
-        top: 65px;
-        left: 16px;
-        right: 16px;
-        padding: 20px;
-        background: var(--card);
-        border: 1px solid var(--line);
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      nav.open { display: flex; }
-
-      .hero {
-        min-height: 540px;
-        padding: 65px 0;
-      }
-
-      .hero-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .skills-grid { grid-template-columns: 1fr; }
-
-      .skill { min-height: 125px; }
-
-      .resume-panel {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .contact-row {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      footer { flex-direction: column; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diana Rose Guian | IT Student Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#home">
-        DIANA GUIAB <span>/ PORTFOLIO</span>
-      </a>
 
-      <button class="nav-toggle"
-        aria-label="Open navigation"
-        aria-expanded="false"
-        onclick="toggleNav()">☰</button>
-
-      <nav id="nav">
-        <a href="#home" onclick="closeNav()">Home</a>
-        <a href="#skills" onclick="closeNav()">Skills</a>
-        <a href="#about" onclick="closeNav()">About Me</a>
-        <a href="#resume" onclick="closeNav()">Resume</a>
-        <a href="#contact" onclick="closeNav()">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero" id="home" style="border-top:0">
-        <p class="eyebrow">Aspiring Programmer · Portfolio 2026</p>
-
-        <h1>Hi, I'm<br><span class="outline">Diana</span><br>Guiab.</h1>
-
-        <div class="hero-bottom">
-          <p class="intro">
-            I'm a 3rd-year Bachelor of Science in Information Technology
-            student and beginner programmer learning web development
-            one step at a time.
-          </p>
-
-          <div class="hero-links">
-            <a class="btn primary" href="#skills">Explore my skills ↓</a>
-            <a class="btn" href="#contact">Get in touch ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <div class="section-head">
-          <h2>More about me</h2>
-          <p>(01 — A little introduction)</p>
-        </div>
-
-        <div class="about-grid">
-          <p class="about-kicker">Hi there! Nice to meet you.</p>
-
-          <p class="about-copy">
-            <strong>Hi, my name is Diana Guiab.</strong>
-            I am a third-year college student taking Bachelor of Science
-            in Information Technology at Nueva Vizcaya State University.
-            I am beginning my journey in programming and enjoy learning
-            about technology, exploring how websites work, and practicing
-            new coding skills. My goal is to keep improving, gain practical
-            experience, and create useful, user-friendly websites.
-          </p>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div class="section-head">
-          <h2>Skills</h2>
-          <p>(02 — What I'm learning)</p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill">
-            <span class="skill-num">01 / WEB</span>
-            <div>
-              <h3>HTML</h3>
-              <p>Learning to build the structure and content of web pages.</p>
-            </div>
-          </article>
-
-          <article class="skill">
-            <span class="skill-num">02 / DESIGN</span>
-            <div>
-              <h3>CSS</h3>
-              <p>Learning to style layouts, colors, typography, and responsive pages.</p>
-            </div>
-          </article>
-
-          <article class="skill">
-            <span class="skill-num">03 / IT SUPPORT</span>
-            <div>
-              <h3>Computer Systems Servicing</h3>
-              <p>Knowledge of computer setup, maintenance, and troubleshooting.</p>
-            </div>
-          </article>
-
-          <article class="skill">
-            <span class="skill-num">04 / PERSONAL</span>
-            <div>
-              <h3>Problem-solving</h3>
-              <p>Curiosity, patience, and willingness to learn new technologies.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="resume">
-        <div class="section-head">
-          <h2>Resume</h2>
-          <p>(03 — Education & certification)</p>
-        </div>
-
-        <div class="resume-panel">
-          <div>
-            <h3>Want to know more?</h3>
-            <p>
-              My resume highlights my Information Technology education,
-              technical skills, and Computer Systems Servicing (CSS) NC II
-              certification. Open the PDF to learn more about my background.
-            </p>
-          </div>
-
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
-            View my resume ↗
-          </a>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>(04 — Let's connect)</p>
-        </div>
-
-        <div class="contact-row">
-          <h2>Have an idea?<br><span>Let's talk.</span></h2>
-
-          <a class="btn primary"
-             href="mailto:dianacabiles143@gmail.com">
-            dianacabiles143@gmail.com ↗
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <span>© 2026 Diana Guiab</span>
-      <span>Designed with curiosity and code.</span>
-    </footer>
+<!-- ===== OPENING SCREEN ===== -->
+<div id="intro">
+  <button id="skip" type="button">Skip</button>
+  <div>
+    <svg viewBox="0 0 120 120" aria-label="Robot cat logo">
+      <path d="M26 40 L22 8 L50 26Z M94 40 L98 8 L70 26Z" fill="#1c7ef2" stroke="#0f4fa8" stroke-width="3" stroke-linejoin="round"/>
+      <line x1="60" y1="10" x2="60" y2="2" stroke="#0f4fa8" stroke-width="3"/><circle cx="60" cy="4" r="4" fill="#ffd54a"/>
+      <circle cx="60" cy="58" r="46" fill="#1c7ef2" stroke="#0f4fa8" stroke-width="3"/>
+      <ellipse cx="60" cy="66" rx="34" ry="30" fill="#fff"/>
+      <rect x="53" y="22" width="14" height="9" rx="3" fill="#8fd0ff" stroke="#0f4fa8" stroke-width="2"/>
+      <ellipse cx="46" cy="52" rx="8" ry="11" fill="#fff" stroke="#0f4fa8" stroke-width="3"/><ellipse cx="74" cy="52" rx="8" ry="11" fill="#fff" stroke="#0f4fa8" stroke-width="3"/>
+      <circle cx="48" cy="54" r="4" fill="#12305a"/><circle cx="72" cy="54" r="4" fill="#12305a"/>
+      <circle cx="60" cy="66" r="5" fill="#ffb02e" stroke="#0f4fa8" stroke-width="2"/>
+      <path d="M44 78 Q60 92 76 78" fill="none" stroke="#0f4fa8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M22 62 L38 66 M22 74 L38 72 M98 62 L82 66 M98 74 L82 72" stroke="#0f4fa8" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    <div id="boot" class="mono" aria-live="polite"></div>
   </div>
+</div>
 
-  <script>
-    function toggleNav() {
-      const nav = document.getElementById('nav');
-      const btn = document.querySelector('.nav-toggle');
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#home"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="#1c7ef2"/><ellipse cx="60" cy="68" rx="34" ry="28" fill="#fff"/><circle cx="46" cy="54" r="6" fill="#12305a"/><circle cx="74" cy="54" r="6" fill="#12305a"/><circle cx="60" cy="68" r="5" fill="#ffb02e"/></svg>JC.dev</a>
+    <button id="burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="links" id="links">
+      <li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li><li><a href="#achievements">Achievements</a></li>
+      <li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-      nav.classList.toggle('open');
-      btn.setAttribute(
-        'aria-expanded',
-        nav.classList.contains('open')
-      );
-    }
+<main>
+<!-- ===== HOME ===== -->
+<section id="home">
+  <div>
+    <p class="tag mono">&gt; Welcome to my digital profile<span class="cursor"></span></p>
+    <h1>Hello! I'm Diana Rose Guiab </h1>
+    <p class="intro">An aspiring Information Technology professional who enjoys learning about technology, computers, and cybersecurity while continuously developing new skills.</p>
+    <div class="facts">
+      <div><b>name</b>Diana Rose Guiab</div>
+      <div><b>age</b>20</div>
+      <div><b>school</b>Nueva Vizcaya State University</div>
+      <div><b>course</b>Bachelor of Science in Information Technology</div>
+    </div>
+    <a class="btn" href="#achievements">See my achievements</a><a class="btn alt" href="#contact">Get in touch</a>
+  </div>
+  <!-- To use your photo: set src below, e.g. <img src="me.jpg"> and remove the span -->
+  <div class="pic" id="pic"><img id="picimg" alt="Photo of Diana Rose Guiab"><span id="picph">&lt;/&gt;<br>Your photo goes here</span></div>
+</section>
 
-    function closeNav() {
-      const nav = document.getElementById('nav');
-      const btn = document.querySelector('.nav-toggle');
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <h2>About Me</h2><p class="sub">Edit the text in each card to make it yours.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">★</div><h3>Personal interests</h3><p>[Edit: things you enjoy learning about and exploring.]</p></div>
+    <div class="card"><div class="ico">⚙</div><h3>Technology interests</h3><p>Computers, hardware, and how software and systems work together.</p></div>
+    <div class="card"><div class="ico">🛡</div><h3>Cybersecurity interests</h3><p>Learning how to keep systems and data safe. [Edit: add topics you want to explore.]</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>Hobbies</h3><p>[Edit: your hobbies here.]</p></div>
+    <div class="card"><div class="ico">🎯</div><h3>Personal goals</h3><p>[Edit: what you want to improve or achieve.]</p></div>
+    <div class="card"><div class="ico">🚀</div><h3>Future career goals</h3><p>[Edit: the IT career path you want to follow.]</p></div>
+  </div>
+</section>
 
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  </script>
+<!-- ===== ACHIEVEMENTS ===== -->
+<section id="achievements">
+  <h2>Achievements</h2><p class="sub">Milestones from my IT journey so far.</p>
+  <div class="card cert">
+    <span class="unlock mono">ACHIEVEMENT UNLOCKED</span>
+    <div class="ico">🎓</div>
+    <h3>NC II – Computer Systems Servicing</h3>
+    <p class="lvl">Senior High School Achievement</p>
+    <p>Earned during Senior High School, this certification represents knowledge and skills in computer systems servicing and basic technical support.</p>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education">
+  <h2>Education</h2><p class="sub">My academic journey, from the start to now.</p>
+  <div class="tl">
+    <div class="step"><span class="dot"></span><div class="card">
+      <span class="lv mono">Elementary</span><h3><span class="em">🏫</span> Bayombong Central School</h3>
+      <h4>Academic Achievements</h4><ul><li class="todo">[Add achievements here]</li></ul></div></div>
+    <div class="step"><span class="dot"></span><div class="card">
+      <span class="lv mono">Junior High School</span><h3><span class="em">📘</span> Alternative Learning School</h3>
+      <h4>Academic Achievements</h4><ul><li class="todo">[Add achievements here]</li></ul></div></div>
+    <div class="step"><span class="dot"></span><div class="card">
+      <span class="lv mono">Senior High School</span><h3><span class="em">💻</span> Nueva Vizcaya General Comprehensive High School</h3>
+      <h4>Academic Achievements</h4><ul><li>NC II – Computer Systems Servicing</li><li class="todo">[Add more achievements here]</li></ul></div></div>
+    <div class="step"><span class="dot"></span><div class="card">
+      <span class="lv mono">College</span><h3><span class="em">🎓</span> Nueva Vizcaya State University</h3>
+      <p><b>Course:</b> Bachelor of Science in Information Technology</p>
+      <h4>Academic Achievements</h4><ul><li class="todo">[Add achievements here]</li></ul></div></div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<!-- Change a skill level by editing data-level (1 = Beginner, 2 = Intermediate, 3 = Advanced) -->
+<section id="skills">
+  <h2>Skills &amp; Knowledge</h2><p class="sub">Still learning. These levels will grow as I do.</p>
+  <div class="grid" id="skillgrid">
+    <div class="card skill" data-name="Database Management" data-level="1"></div>
+    <div class="card skill" data-name="Networking" data-level="1"></div>
+    <div class="card skill" data-name="Cybersecurity" data-level="1"></div>
+    <div class="card skill" data-name="Computer Systems Servicing" data-level="2"></div>
+    <div class="card skill" data-name="IT Troubleshooting" data-level="2"></div>
+    <div class="card skill" data-name="Tools &amp; Technologies" data-level="1"></div>
+    <div class="card skill" data-name="[Add other skills here]" data-level="1"></div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact">
+  <h2>Contact</h2><p class="sub">Replace the placeholder links with your own.</p>
+  <div class="grid">
+    <a class="card" href="mailto:your.email@example.com"><div class="ico">✉</div><h3>Email</h3><b>your.email@example.com</b></a>
+    <a class="card" href="#"><div class="ico">⌥</div><h3>GitHub</h3><b>github.com/your-username</b></a>
+    <a class="card" href="#"><div class="ico">in</div><h3>LinkedIn / Facebook</h3><b>[Add your link here]</b></a>
+  </div>
+</section>
+</main>
+<footer class="mono">&lt;/&gt; Built by John Christopher Bornios Perez · Nueva Vizcaya State University</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
